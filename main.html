@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>
+        louter project
+    </title>
+    <script src="./server.js"></script>
+  </head>
+  <body>
+    <div id="container1">
+      <p><code>fetch</code>를 사용해서 서버와 통신하기</p>
+      <a href="https://jsonplaceholder.typicode.com"><p>통신할 서버 주소</p></a>
+      <button id="fetchButton">random post 불러오기</button>
+      <div class="search">
+        <input type="number" id="getPostIdInput" placeholder="Post ID 입력" />
+        <button id="fetchSpecificButton">특정 post 불러오기</button>
+      </div>
+      <div class="search">
+        <input type="text" id="postTitleInput" placeholder="제목 입력" />
+        <input type="text" id="postBodyInput" placeholder="내용 입력" />
+        <button id="createPostButton">포스트 생성</button>
+      </div>
+    </div>
+    <div id="container2">
+      <div id="result"></div>
+    </div>
+  </body>
+</html>
