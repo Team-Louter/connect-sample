@@ -100,7 +100,7 @@ addEventListener("DOMContentLoaded", () => {
 
     const color = generateRandomColor();
     const createMessage = `<p style="color:#${color}">새 포스트 생성</p>`;
-    displayResult(resultDiv, searchMessage);
+    displayResult(resultDiv, createMessage);
     const data = await postData({
       userId: userId,
       title: title,
