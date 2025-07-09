@@ -41,8 +41,8 @@ const createResultHTML = (id, data, color, isError = false) => {
 };
 
 // 결과 표시
-const displayResult = (resultDiv, message, resultHTML) => {
-  resultDiv.innerHTML = message + resultHTML + resultDiv.innerHTML;
+const displayResult = (resultDiv, message,) => {
+  resultDiv.innerHTML = message + resultDiv.innerHTML;
 };
 
 addEventListener("DOMContentLoaded", () => {
@@ -60,6 +60,8 @@ addEventListener("DOMContentLoaded", () => {
     const color = generateRandomColor();
 
     const searchMessage = `<p style="color:#${color}">ID 검색: ${r}</p>`;
+    displayResult(resultDiv, searchMessage);
+
     const data = await fetchData(r);
     const resultHTML = createResultHTML(
       r,
@@ -68,7 +70,7 @@ addEventListener("DOMContentLoaded", () => {
       typeof data === "string"
     );
 
-    displayResult(resultDiv, searchMessage, resultHTML);
+    displayResult(resultDiv, resultHTML);
   });
 
   // 특정 ID로 GET 요청
@@ -76,6 +78,8 @@ addEventListener("DOMContentLoaded", () => {
     const id = parseInt(getPostIdInput.value);
     const color = generateRandomColor();
     const searchMessage = `<p style="color:#${color}">ID 검색: ${id}</p>`;
+    displayResult(resultDiv, searchMessage);
+
     const data = await fetchData(id);
     const resultHTML = createResultHTML(
       id,
@@ -84,7 +88,7 @@ addEventListener("DOMContentLoaded", () => {
       typeof data === "string"
     );
 
-    displayResult(resultDiv, searchMessage, resultHTML);
+    displayResult(resultDiv, resultHTML);
     getPostIdInput.value = ""; // 입력 필드 초기화
   });
 
@@ -96,6 +100,7 @@ addEventListener("DOMContentLoaded", () => {
 
     const color = generateRandomColor();
     const createMessage = `<p style="color:#${color}">새 포스트 생성</p>`;
+    displayResult(resultDiv, searchMessage);
     const data = await postData({
       userId: userId,
       title: title,
@@ -108,7 +113,7 @@ addEventListener("DOMContentLoaded", () => {
       typeof data === "string"
     );
 
-    displayResult(resultDiv, createMessage, resultHTML);
+    displayResult(resultDiv, resultHTML);
 
     // 입력 필드들 초기화
     postTitleInput.value = "";
