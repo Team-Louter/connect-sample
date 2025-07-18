@@ -4,12 +4,26 @@ const apiRequest = async (url, options = {}) => {
   // 값은 json 형태로 반환하기
   // http 상태 코드가 200이 아닐 경우 catch문으로 코드 전달하기
   // 파라미터 추가 X, 파라미터 전부 사용
+
+  try {
+    const response = await fetch(url, options);
+
+    if (response.status !== 200) {
+      throw new Error("Status code is not 200");
+    }
+
+    return response.json();
+  } catch (error) {
+    console.log(error + "!!!");
+  }
 };
 
 // GET 요청
 const fetchData = async (number) => {
     // apiRequest 함수 써서 number에 해당하는 post를 return하는 함수 내부 쓰기
     // 파라미터 추가 X, 파라미터 전부 사용
+
+    return apiRequest();
 };
 
 // POST 요청
