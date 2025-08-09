@@ -1,5 +1,14 @@
 // 공통 API 요청 함수
 const apiRequest = async (url, options = {}) => {
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+
+    }
+    return response.json();
+  } catch (error) {
+    console.log(error, "!!!");
+  }
   // try catch 문을 사용해서 오류 처리하기
   // 값은 json 형태로 반환하기
   // http 상태 코드가 200이 아닐 경우 catch문으로 코드 전달하기
